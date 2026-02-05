@@ -32,7 +32,7 @@ project/
 │   └── john1.jpg
 ├── Seth Rollins/
 │   └── seth2.jpg
-└── face_verification.py
+└── face_recognition.py
 ```
 
 ---
@@ -63,7 +63,7 @@ pip install opencv-python numpy mtcnn keras-facenet tensorflow
 3. Run the program:
 
 ```bash
-python face_verification.py
+python face_recognition.py
 ```
 
 ---
