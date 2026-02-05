@@ -2,7 +2,7 @@ import cv2
 import os
 import numpy as np
 
-people = ["Mukhtar"]
+people = ["Elon Musk","John Cena","Robert Downey","Seth Rollins","Steve Rogers"]
 # Use absolute path or ensure DIR is correct
 DIR = r'project'
 
