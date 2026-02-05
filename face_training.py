@@ -2,9 +2,9 @@ import cv2
 import os
 import numpy as np
 
-people = ["Seth Rollins", "John Cena", "Robert Downey", "Steve Rogers", "Elon Musk"]
+people = ["Mukhtar"]
 # Use absolute path or ensure DIR is correct
-DIR = r'C:\Users\syedm\OneDrive\Desktop\MP\CodSoft\Project4\project'
+DIR = r'project'
 
 # Use built-in path to avoid "XML not found" errors
 haar_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
