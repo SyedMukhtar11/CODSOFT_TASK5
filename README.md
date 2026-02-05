@@ -1,29 +1,26 @@
-# Siamese Face Recognition using FaceNet + MTCNN
+# Siamese Face Verification using FaceNet + MTCNN
 
-A real-time **Siamese Neural Network–based face verification system** using **FaceNet embeddings** and **MTCNN face detection**. The system compares a reference face with a live webcam feed using **cosine similarity** to determine whether both faces belong to the same person.
+This project implements a **Siamese Neural Network–based face verification system** using **MTCNN** for face detection and **FaceNet** for deep face embeddings. Two face images are compared using **cosine similarity** to determine whether they belong to the same person.
 
 ---
 
 ## 🚀 Features
 
-* Siamese-style face verification (embedding comparison)
-* Face detection using **MTCNN**
-* Face embedding using **FaceNet**
-* Real-time webcam verification
-* Cosine similarity–based decision
-* No classical training required
+* Siamese-style face comparison
+* Accurate face detection with MTCNN
+* Face embeddings using FaceNet
+* Cosine similarity–based verification
+* No model training required
 
 ---
 
 ## 🧠 How It Works
 
-1. A reference image is processed to extract a face embedding
-2. Webcam frames are captured in real time
-3. Faces are detected and embedded
+1. Two input images are loaded
+2. Faces are detected and cropped using MTCNN
+3. Each face is converted into a 128-D embedding using FaceNet
 4. Embeddings are compared using cosine similarity
-5. If similarity exceeds a threshold, faces are considered the same person
-
-This follows the **Siamese Network paradigm**, where similarity between two inputs is learned via a shared network.
+5. A threshold determines same or different person
 
 ---
 
@@ -31,12 +28,11 @@ This follows the **Siamese Network paradigm**, where similarity between two inpu
 
 ```
 project/
-├── Mukhtar/
-│   ├── img1.jpg
-│   ├── img2.jpg
-│   └── img3.jpg
-├── face_recognition.py
-└── README.md
+├── John Cena/
+│   └── john1.jpg
+├── Seth Rollins/
+│   └── seth2.jpg
+└── face_verification.py
 ```
 
 ---
@@ -48,7 +44,7 @@ project/
 * NumPy
 * MTCNN
 * keras-facenet
-* TensorFlow (backend)
+* TensorFlow
 
 ---
 
@@ -58,60 +54,44 @@ project/
 pip install opencv-python numpy mtcnn keras-facenet tensorflow
 ```
 
-> ⚠️ Python 3.13 may show TensorFlow warnings. Python 3.10 or 3.11 is recommended.
-
 ---
 
 ## ▶️ Usage
 
-1. Place reference images inside the person’s folder (e.g., `project/Mukhtar/`)
-2. Update the reference image path in the script
+1. Place images inside their respective folders
+2. Update image paths in the script if needed
 3. Run the program:
 
 ```bash
-python face_recognition.py
+python face_verification.py
 ```
 
-4. Press **Q** to exit the webcam window
+---
+
+## 🎯 Similarity Threshold
+
+| Cosine Similarity | Result           |
+| ----------------- | ---------------- |
+| > 0.50            | Same person      |
+| ≤ 0.50            | Different person |
+
+Threshold can be tuned based on image quality.
 
 ---
 
-## 🎯 Similarity Thresholds
+## ✅ Advantages
 
-| Cosine Similarity | Result                        |
-| ----------------- | ----------------------------- |
-| > 0.60            | Same person (high confidence) |
-| 0.50 – 0.60       | Likely same                   |
-| < 0.50            | Different person              |
-
-Thresholds may be adjusted depending on lighting and camera quality.
-
----
-
-## ✅ Advantages of Siamese FaceNet
-
-* No retraining for new users
-* High accuracy
-* Scales easily to many identities
-* Robust to lighting and pose variations
+* Simple and lightweight
+* High accuracy with deep embeddings
+* Suitable for one-shot face verification
 
 ---
 
 ## ⚠️ Limitations
 
-* Sensitive to very low-light conditions
-* No anti-spoofing (photo/video attacks)
-* Single-face comparison per frame
-
----
-
-## 🔮 Future Improvements
-
-* Multi-face recognition
-* Embedding database with multiple users
-* Anti-spoofing detection
-* FastAPI / Streamlit deployment
-* GPU acceleration
+* Sensitive to lighting and pose variations
+* No anti-spoofing protection
+* Assumes one face per image
 
 ---
 
@@ -119,7 +99,7 @@ Thresholds may be adjusted depending on lighting and camera quality.
 
 * FaceNet: A Unified Embedding for Face Recognition
 * MTCNN: Joint Face Detection and Alignment
-* Siamese Neural Networks for One-Shot Learning
+* Siamese Neural Networks
 
 ---
 
@@ -131,4 +111,4 @@ Thresholds may be adjusted depending on lighting and camera quality.
 
 ## 📜 License
 
-This project is for educational and research purposes.
+This project is intended for educational and research purposes.
